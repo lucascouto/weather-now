@@ -1,4 +1,13 @@
 .container {
     background-color: #F1F1F1;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .cards {
+        width: 900px;
+        display: flex;
+        justify-content: space-between;
+    }
 }

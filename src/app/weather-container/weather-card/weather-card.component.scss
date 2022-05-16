@@ -1,0 +1,56 @@
+.card {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px 1px rgba(51, 51, 51, .1);
+
+    height: 260px;
+    width: 250px;
+
+    .card-header {
+        border-bottom: 1px solid #ebebeb;
+        text-align: center;
+        padding: 12px 0;
+        color: #737c84;
+    }
+
+    .card-content {
+        height: calc(100% - 43px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .card-body {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 80px;
+        }
+    
+        .card-footer {
+            height: 60px;
+            padding-top: 15px;
+            background-color: rgba(241, 241, 241, .5);
+            
+            .card-footer-content {
+                display: flex;
+                justify-content: space-around;
+                
+    
+                .footer-info {
+                    font-size:12px;
+                    color: #b4b4b4;
+                }
+        
+               .footer-info-value {
+                   text-align: center;
+                   color: #737c84;
+               }
+            }
+
+            .update-info {
+                text-align: center; 
+                margin-top: 6px; 
+                font-size: 10px;
+            }
+        }
+    }
+}
