@@ -1,7 +1,8 @@
 <section class="container">
   <div class="cards">
-    <app-weather-card></app-weather-card>
-    <app-weather-card></app-weather-card>
-    <app-weather-card></app-weather-card>
+    <app-weather-card
+      *ngFor="let city of cities"
+      [cityName]="city"
+    ></app-weather-card>
   </div>
 </section>

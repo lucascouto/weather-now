@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weather-container.component.scss'],
 })
 export class WeatherContainerComponent implements OnInit {
+  cities: string[] = ['Nuuk', 'Urubici', 'Nairobi'];
+
   constructor() {}
 
   ngOnInit(): void {}
