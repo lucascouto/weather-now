@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { WeatherContainerComponent } from './weather-container/weather-container.component';
 import { WeatherCardComponent } from './weather-container/weather-card/weather-card.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherContainerComponent,
-    WeatherCardComponent
+    WeatherCardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule
