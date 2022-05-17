@@ -1,4 +1,9 @@
-<div class="card">
+<div
+  openInMobile
+  [cardFooter]="cardFooter"
+  [cardFooterContent]="cardFooterContent"
+  class="card"
+>
   <div class="card-header">
     <label>{{ city.name }}, {{ city.country }}</label>
   </div>
@@ -8,8 +13,8 @@
         >{{ currentWeather.temp | number: "1.0-0" }}<code>&deg;</code></span
       >
     </div>
-    <div class="card-footer">
-      <div class="card-footer-content">
+    <div class="card-footer" #cardFooter>
+      <div class="card-footer-content" #cardFooterContent>
         <div>
           <p class="footer-info">HUMIDITY</p>
           <p class="footer-info-value">{{ currentWeather.humidity }}%</p>

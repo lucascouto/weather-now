@@ -1,4 +1,13 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { mergeMap, Observable, Subscription, timer } from 'rxjs';
 import { City } from 'src/app/models/city';
 import { WeatherInfo } from 'src/app/models/weather-info';
@@ -9,17 +18,29 @@ import { WeatherService } from 'src/app/services/weather.service';
   templateUrl: './weather-card.component.html',
   styleUrls: ['./weather-card.component.scss'],
 })
-export class WeatherCardComponent implements OnInit, OnDestroy {
+export class WeatherCardComponent
+  implements OnInit, OnDestroy, AfterViewChecked
+{
   @Input() city!: City;
   currentWeather!: WeatherInfo;
   updateHour = new Date();
   timerSubscription!: Subscription;
   errorResponse = false;
 
-  constructor(private weatherService: WeatherService) {}
+  @ViewChild('cardFooter') cardFooter!: ElementRef<HTMLElement>;
+  @ViewChild('cardFooterContent') cardFooterContent!: ElementRef<HTMLElement>;
+
+  constructor(
+    private weatherService: WeatherService,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.requestCurrentWeather();
+  }
+
+  ngAfterViewChecked(): void {
+    this.cdRef.detectChanges();
   }
 
   getTemperatureColor(): Object {
