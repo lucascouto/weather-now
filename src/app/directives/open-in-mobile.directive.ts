@@ -13,11 +13,29 @@ export class OpenInMobileDirective {
   @Input() cardFooter!: ElementRef<HTMLElement>;
   @Input() cardFooterContent!: ElementRef<HTMLElement>;
 
+  private isFooterOpened = false;
+
   constructor(private renderer: Renderer2) {}
 
   @HostListener('click') onClick(): void {
     if (this.isTouchScreen()) {
-      this.renderer.setStyle(this.cardFooter.nativeElement, 'height', '80px');
+      if (!this.isFooterOpened) {
+        this.renderer.setStyle(this.cardFooter.nativeElement, 'height', '80px');
+        this.renderer.setStyle(
+          this.cardFooterContent.nativeElement,
+          'display',
+          'flex'
+        );
+        this.isFooterOpened = true;
+      } else {
+        this.renderer.setStyle(this.cardFooter.nativeElement, 'height', '35px');
+        this.renderer.setStyle(
+          this.cardFooterContent.nativeElement,
+          'display',
+          'none'
+        );
+        this.isFooterOpened = false;
+      }
     }
   }
 
