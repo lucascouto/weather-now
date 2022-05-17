@@ -2,33 +2,15 @@
     background-color: white;
     border-radius: 5px;
     box-shadow: 1px 1px 4px 1px rgba(51, 51, 51, .1);
-    cursor: default;
+    cursor: pointer;
 
     height: 250px;
     width: 250px;
-    transition: all .3s;
+    transition: all .2s;
 
     @media screen and (max-width: 380px) {
         height: 200px;
         width: 200px;
-    }
-
-    &:hover {
-
-        @media screen and (min-width: 992px) {
-            transform: scale(1.2);
-        }
-
-        @media (pointer: fine) {
-            .card-content {
-                .card-footer {
-                    height: 80px;
-                    .card-footer-content {
-                        display: flex;
-                    }
-                }
-            }
-        }
     }
 
     .card-header {

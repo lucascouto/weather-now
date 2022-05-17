@@ -15,20 +15,17 @@ export class OpenInMobileDirective {
 
   private isFooterOpened = false;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(
+    private elRef: ElementRef<HTMLElement>,
+    private renderer: Renderer2
+  ) {}
 
   @HostListener('click') onClick(): void {
-    if (this.isTouchScreen()) {
-      if (!this.isFooterOpened) {
-        this.openFooter();
-      } else {
-        this.closeFooter();
-      }
+    if (!this.isFooterOpened) {
+      this.openFooter();
+    } else {
+      this.closeFooter();
     }
-  }
-
-  private isTouchScreen(): boolean {
-    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   }
 
   private closeFooter(): void {
@@ -39,6 +36,15 @@ export class OpenInMobileDirective {
         'display',
         'none'
       );
+
+      if (!this.isTouchScreen()) {
+        this.renderer.setStyle(
+          this.elRef.nativeElement,
+          'transform',
+          'scale(1)'
+        );
+      }
+
       this.isFooterOpened = false;
     }
   }
@@ -50,6 +56,19 @@ export class OpenInMobileDirective {
       'display',
       'flex'
     );
+
+    if (!this.isTouchScreen()) {
+      this.renderer.setStyle(
+        this.elRef.nativeElement,
+        'transform',
+        'scale(1.2)'
+      );
+    }
+
     this.isFooterOpened = true;
+  }
+
+  private isTouchScreen(): boolean {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   }
 }
