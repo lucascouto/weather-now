@@ -1,27 +1,34 @@
 # WeatherNow
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
+Essa aplicação mostra em tempo real dados de clima de três cidades diferentes: Nuuk, GL; Urubici, BR; Nairobi, KE. A cada 10 minutos é feita uma nova requisição para que os dados possam ser atualizados. O sistema de coloração das temperaturas seguem o seguinte padrão:
 
-## Development server
+- temperaturas menores ou iguais a 5 são mostradas em azul;
+- temperaturas maiores que 5 e menores ou iguais a 25 são mostradas em laranja;
+- temperaturas maiores que 25 são mostradas em vermelho.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Para mostrar os dados, a aplicação consome a API de https://openweathermap.org/api.
 
-## Code scaffolding
+## Como rodar a aplicação
+A aplicação encontra-se no ar no seguinte endereço: https://lucas-weather.netlify.app/. Aproveite o link para testar em um celular! Caso se deseja rodar a aplicação na máquina local, os seguintes passos devem ser seguindos:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- clone o projeto: `$ git clone git@github.com:lucascouto/weather-now.git`
+- mude para a pasta do projeto: `$ cd weather-now`
+- instale todas as dependências: `$ npm i`
+- rode o projeto localmente: `$ ng serve`
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usabilidade
 
-## Running unit tests
+A princípio, é mostrado apenas as temperaturas das cidades, porém ao clicar em cada card, é possível ver mais informações sobre o clima: umidade e pressão.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Desktop
 
-## Running end-to-end tests
+https://user-images.githubusercontent.com/3027605/168926997-bce9df9c-d783-479c-86e0-3787253259f9.mp4
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Mobile
 
-## Further help
+https://user-images.githubusercontent.com/3027605/168928556-41815dbd-99e9-4ba8-a7b4-54b3fde91c2f.mp4
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
