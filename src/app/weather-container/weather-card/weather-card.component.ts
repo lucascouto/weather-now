@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { mergeMap, Subscription, timer } from 'rxjs';
+import { mergeMap, Observable, Subscription, timer } from 'rxjs';
 import { City } from 'src/app/models/city';
 import { WeatherInfo } from 'src/app/models/weather-info';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -19,15 +19,7 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
-    this.timerSubscription = timer(0, 10 * 60 * 1000)
-      .pipe(mergeMap(() => this.loadData()))
-      .subscribe({
-        next: (weather) => {
-          this.currentWeather = weather;
-          this.updateHour = new Date();
-        },
-        error: () => (this.errorResponse = true),
-      });
+    this.requestCurrentWeather();
   }
 
   getTemperatureColor(): Object {
@@ -39,7 +31,21 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
     };
   }
 
-  private loadData() {
+  requestCurrentWeather(): void {
+    this.errorResponse = false;
+
+    this.timerSubscription = timer(0, 10 * 60 * 1000)
+      .pipe(mergeMap(() => this.loadWeatherData()))
+      .subscribe({
+        next: (weather) => {
+          this.currentWeather = weather;
+          this.updateHour = new Date();
+        },
+        error: () => (this.errorResponse = true),
+      });
+  }
+
+  private loadWeatherData(): Observable<WeatherInfo> {
     return this.weatherService.getCurrentWeather(this.city.name);
   }
 
