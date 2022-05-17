@@ -25,6 +25,10 @@
                 .card-footer-content {
                     display: flex;
                 }
+
+                .update-info {
+                    height: calc(100% - 40px);
+                }
             }
         }
     }
@@ -82,8 +86,10 @@
             }
 
             .update-info {
-                text-align: center; 
-                margin-top: 6px; 
+                height: calc(100% - 12px);
+                display: flex;
+                justify-content: center; 
+                align-items: center;
                 font-size: 10px;
                 color: #b4b4b4;
             }

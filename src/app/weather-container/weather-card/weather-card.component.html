@@ -25,9 +25,9 @@
           <p class="footer-info-value">{{ currentWeather.pressure }}hPa</p>
         </div>
       </div>
-      <p class="update-info">
-        Updated at {{ updateHour | date: "hh:mm:ss a" }}
-      </p>
+      <div class="update-info">
+        <p>Updated at {{ updateHour | date: "hh:mm:ss a" }}</p>
+      </div>
     </div>
   </div>
   <div *ngIf="errorResponse" class="error">
