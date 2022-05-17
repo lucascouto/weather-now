@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { City } from '../models/city';
 
 @Component({
   selector: 'app-weather-container',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weather-container.component.scss'],
 })
 export class WeatherContainerComponent implements OnInit {
-  cities: string[] = ['Nuuk', 'Urubici', 'Nairobi'];
+  cities: City[] = [
+    { name: 'Nuuk', country: 'GL' },
+    { name: 'Urubici', country: 'BR' },
+    { name: 'Nairobi', country: 'KE' },
+  ];
 
   constructor() {}
 
