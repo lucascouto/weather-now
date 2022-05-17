@@ -85,15 +85,15 @@
     }
 
     .loader-container {
-        height: calc(100% - 43px);
-        display: flex;
+        @extend .card-content;
         justify-content: center;
         align-items: center;
     }
 
     .error {
-        @extend .loader-container;
-        flex-direction: column;
+        @extend .card-content;
+        justify-content: center;
+        align-items: center;
 
         .error-message {
             color: #ED1946;
