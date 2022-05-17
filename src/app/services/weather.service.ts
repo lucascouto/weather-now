@@ -15,7 +15,7 @@ export class WeatherService {
   getCurrentWeather(cityName: string) {
     return this.http
       .get<RootWeatherInfo>(
-        `${this.baseUrl}?q=${cityName}&appid=${this.API_KEY}`
+        `${this.baseUrl}?q=${cityName}&appid=${this.API_KEY}&units=metric`
       )
       .pipe(map((rootWeatherInfo) => rootWeatherInfo.main));
   }

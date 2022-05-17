@@ -1,10 +1,10 @@
-<div class="card">
+<div class="card" *ngIf="currentWeather">
   <div class="card-header">
     <label>{{ cityName }}</label>
   </div>
   <div class="card-content">
     <div class="card-body">
-      <span>{{ currentWeather.temp }}<code>&deg;</code></span>
+      <span>{{ currentWeather.temp | number: "1.0-0" }}<code>&deg;</code></span>
     </div>
     <div class="card-footer">
       <div class="card-footer-content">
