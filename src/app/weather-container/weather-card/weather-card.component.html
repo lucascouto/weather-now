@@ -4,7 +4,9 @@
   </div>
   <div class="card-content" *ngIf="currentWeather">
     <div class="card-body">
-      <span>{{ currentWeather.temp | number: "1.0-0" }}<code>&deg;</code></span>
+      <span [ngClass]="getTemperatureColor()"
+        >{{ currentWeather.temp | number: "1.0-0" }}<code>&deg;</code></span
+      >
     </div>
     <div class="card-footer">
       <div class="card-footer-content">

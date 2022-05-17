@@ -23,6 +23,18 @@
             margin-top: 20px;
             text-align: center;
             font-size: 80px;
+
+            .low-temperature {
+                color: #69A3FF;
+            }
+
+            .medium-temperature {
+                color: #FF9632;
+            }
+
+            .high-temperature {
+                color: #ED1946;
+            }
         }
     
         .card-footer {

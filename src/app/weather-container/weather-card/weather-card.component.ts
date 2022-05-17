@@ -19,4 +19,13 @@ export class WeatherCardComponent implements OnInit {
       .getCurrentWeather(this.city.name)
       .subscribe((weather) => (this.currentWeather = weather));
   }
+
+  getTemperatureColor(): Object {
+    return {
+      'low-temperature': this.currentWeather.temp <= 5,
+      'medium-temperature':
+        this.currentWeather.temp > 5 && this.currentWeather.temp <= 25,
+      'high-temperature': this.currentWeather.temp > 25,
+    };
+  }
 }
