@@ -30,7 +30,7 @@ export class OpenInMobileDirective implements OnInit {
   }
 
   @HostListener('click') onClick(): void {
-    this.weatherCardService.setActualCard(this.elementRef.nativeElement.id);
+    this.weatherCardService.setCurrentCard(this.elementRef.nativeElement.id);
 
     if (this.isTouchScreen()) {
       if (!this.isFooterOpened) {
@@ -68,8 +68,8 @@ export class OpenInMobileDirective implements OnInit {
   }
 
   private toggleOpenedCard(): void {
-    this.weatherCardService.actualCard$.subscribe((actualCard) => {
-      if (actualCard !== this.elementRef.nativeElement.id) {
+    this.weatherCardService.currentCard$.subscribe((currentCard) => {
+      if (currentCard !== this.elementRef.nativeElement.id) {
         this.closeFooter();
       }
     });

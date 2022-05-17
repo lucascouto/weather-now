@@ -5,10 +5,10 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class WeatherCardService {
-  private _actualCard = new BehaviorSubject<string>('');
-  actualCard$ = this._actualCard.asObservable();
+  private _currentCard = new BehaviorSubject<string>('');
+  currentCard$ = this._currentCard.asObservable();
 
-  setActualCard(city: string): void {
-    this._actualCard.next(city);
+  setCurrentCard(city: string): void {
+    this._currentCard.next(city);
   }
 }
