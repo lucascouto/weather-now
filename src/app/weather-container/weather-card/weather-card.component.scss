@@ -1,6 +1,7 @@
 .card {
     background-color: white;
     border-radius: 5px;
+    user-select: none;
     box-shadow: 1px 1px 4px 1px rgba(51, 51, 51, .1);
     cursor: pointer;
 
