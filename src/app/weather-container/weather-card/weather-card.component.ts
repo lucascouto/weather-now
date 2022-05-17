@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { mergeMap, timer } from 'rxjs';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { mergeMap, Subscription, timer } from 'rxjs';
 import { City } from 'src/app/models/city';
 import { WeatherInfo } from 'src/app/models/weather-info';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -9,15 +9,16 @@ import { WeatherService } from 'src/app/services/weather.service';
   templateUrl: './weather-card.component.html',
   styleUrls: ['./weather-card.component.scss'],
 })
-export class WeatherCardComponent implements OnInit {
+export class WeatherCardComponent implements OnInit, OnDestroy {
   @Input() city!: City;
   currentWeather!: WeatherInfo;
   updateHour = new Date();
+  timerSubscription!: Subscription;
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
-    timer(0, 10 * 60 * 1000)
+    this.timerSubscription = timer(0, 10 * 60 * 1000)
       .pipe(mergeMap(() => this.loadData()))
       .subscribe((weather) => {
         this.currentWeather = weather;
@@ -36,5 +37,9 @@ export class WeatherCardComponent implements OnInit {
 
   private loadData() {
     return this.weatherService.getCurrentWeather(this.city.name);
+  }
+
+  ngOnDestroy(): void {
+    this.timerSubscription.unsubscribe();
   }
 }
