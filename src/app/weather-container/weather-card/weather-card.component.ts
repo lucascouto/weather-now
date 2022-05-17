@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { interval, mergeMap, timer } from 'rxjs';
+import { mergeMap, timer } from 'rxjs';
 import { City } from 'src/app/models/city';
 import { WeatherInfo } from 'src/app/models/weather-info';
 import { WeatherService } from 'src/app/services/weather.service';
