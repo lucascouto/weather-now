@@ -90,4 +90,25 @@
         justify-content: center;
         align-items: center;
     }
+
+    .error {
+        @extend .loader-container;
+        flex-direction: column;
+
+        .error-message {
+            color: #ED1946;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: white;
+            padding: 10px;
+            border-radius: 20px;
+            border: 2px solid #737C84;
+            font-size: 16px;
+            color: #737C84;
+            width: 100px;
+            cursor: pointer;
+        }
+    }
 }

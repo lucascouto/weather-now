@@ -24,7 +24,11 @@
       </p>
     </div>
   </div>
-  <div class="loader-container" *ngIf="!currentWeather">
+  <div *ngIf="errorResponse" class="error">
+    <span class="error-message">Something went wrong</span>
+    <button class="button">Try Again</button>
+  </div>
+  <div class="loader-container" *ngIf="!currentWeather && !errorResponse">
     <img src="assets/loader.svg" />
   </div>
 </div>

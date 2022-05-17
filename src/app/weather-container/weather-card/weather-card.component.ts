@@ -14,15 +14,19 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
   currentWeather!: WeatherInfo;
   updateHour = new Date();
   timerSubscription!: Subscription;
+  errorResponse = false;
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
     this.timerSubscription = timer(0, 10 * 60 * 1000)
       .pipe(mergeMap(() => this.loadData()))
-      .subscribe((weather) => {
-        this.currentWeather = weather;
-        this.updateHour = new Date();
+      .subscribe({
+        next: (weather) => {
+          this.currentWeather = weather;
+          this.updateHour = new Date();
+        },
+        error: () => (this.errorResponse = true),
       });
   }
 
