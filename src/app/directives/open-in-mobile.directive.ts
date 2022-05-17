@@ -3,35 +3,21 @@ import {
   ElementRef,
   HostListener,
   Input,
-  OnInit,
   Renderer2,
 } from '@angular/core';
-import { WeatherCardService } from '../services/weather-card.service';
 
 @Directive({
   selector: '[openInMobile]',
 })
-export class OpenInMobileDirective implements OnInit {
+export class OpenInMobileDirective {
   @Input() cardFooter!: ElementRef<HTMLElement>;
   @Input() cardFooterContent!: ElementRef<HTMLElement>;
 
   private isFooterOpened = false;
 
-  constructor(
-    private elementRef: ElementRef<HTMLElement>,
-    private renderer: Renderer2,
-    private weatherCardService: WeatherCardService
-  ) {}
-
-  ngOnInit(): void {
-    if (this.isTouchScreen()) {
-      this.toggleOpenedCard();
-    }
-  }
+  constructor(private renderer: Renderer2) {}
 
   @HostListener('click') onClick(): void {
-    this.weatherCardService.setCurrentCard(this.elementRef.nativeElement.id);
-
     if (this.isTouchScreen()) {
       if (!this.isFooterOpened) {
         this.openFooter();
@@ -65,13 +51,5 @@ export class OpenInMobileDirective implements OnInit {
       'flex'
     );
     this.isFooterOpened = true;
-  }
-
-  private toggleOpenedCard(): void {
-    this.weatherCardService.currentCard$.subscribe((currentCard) => {
-      if (currentCard !== this.elementRef.nativeElement.id) {
-        this.closeFooter();
-      }
-    });
   }
 }
