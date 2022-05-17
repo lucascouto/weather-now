@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { WeatherInfo } from 'src/app/models/weather-info';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
@@ -8,12 +9,13 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class WeatherCardComponent implements OnInit {
   @Input() cityName = '';
+  currentWeather!: WeatherInfo;
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
     this.weatherService
       .getCurrentWeather(this.cityName)
-      .subscribe((data) => console.log(data));
+      .subscribe((weather) => (this.currentWeather = weather));
   }
 }

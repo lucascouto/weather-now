@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
+import { RootWeatherInfo, WeatherInfo } from '../models/weather-info';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +13,10 @@ export class WeatherService {
   constructor(private http: HttpClient) {}
 
   getCurrentWeather(cityName: string) {
-    return this.http.get(`${this.baseUrl}?q=${cityName}&appid=${this.API_KEY}`);
+    return this.http
+      .get<RootWeatherInfo>(
+        `${this.baseUrl}?q=${cityName}&appid=${this.API_KEY}`
+      )
+      .pipe(map((rootWeatherInfo) => rootWeatherInfo.main));
   }
 }
