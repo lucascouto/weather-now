@@ -1,8 +1,8 @@
-<div class="card" *ngIf="currentWeather">
+<div class="card">
   <div class="card-header">
     <label>{{ city.name }}, {{ city.country }}</label>
   </div>
-  <div class="card-content">
+  <div class="card-content" *ngIf="currentWeather">
     <div class="card-body">
       <span>{{ currentWeather.temp | number: "1.0-0" }}<code>&deg;</code></span>
     </div>
@@ -19,5 +19,8 @@
       </div>
       <p class="update-info">Updated at 02:48:27 PM</p>
     </div>
+  </div>
+  <div class="loader-container" *ngIf="!currentWeather">
+    <img src="assets/loader.svg" />
   </div>
 </div>

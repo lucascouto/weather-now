@@ -53,4 +53,11 @@
             }
         }
     }
+
+    .loader-container {
+        height: calc(100% - 43px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
