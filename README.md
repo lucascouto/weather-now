@@ -29,6 +29,12 @@ https://user-images.githubusercontent.com/3027605/168926997-bce9df9c-d783-479c-8
 
 https://user-images.githubusercontent.com/3027605/168928556-41815dbd-99e9-4ba8-a7b4-54b3fde91c2f.mp4
 
+#### Mensagem de erro
 
+Sempre que, por algum motivo, haja algum erro na requisição, é mostrado a seguinte mensagem de erro:
+
+![2022-05-17_22-54](https://user-images.githubusercontent.com/3027605/168941134-9f9e3e9d-af4a-422d-89bd-2ad4c04302d4.png)
+
+Clicando no botão "Try Again", é feito uma nova tentativa de requisição à API.
 
 
