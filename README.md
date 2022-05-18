@@ -31,7 +31,7 @@ https://user-images.githubusercontent.com/3027605/168928556-41815dbd-99e9-4ba8-a
 
 #### Mensagem de erro
 
-Sempre que, por algum motivo, haja algum erro na requisição, é mostrado a seguinte mensagem de erro:
+Sempre que por algum motivo haja algum erro na requisição, é mostrado a seguinte mensagem de erro:
 
 ![2022-05-17_22-54](https://user-images.githubusercontent.com/3027605/168941134-9f9e3e9d-af4a-422d-89bd-2ad4c04302d4.png)
 
