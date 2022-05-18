@@ -35,6 +35,6 @@ Sempre que por algum motivo haja algum erro na requisição, é mostrado a segui
 
 ![2022-05-17_22-54](https://user-images.githubusercontent.com/3027605/168941134-9f9e3e9d-af4a-422d-89bd-2ad4c04302d4.png)
 
-Clicando no botão "Try Again", é feito uma nova tentativa de requisição à API.
+Clicando no botão "Try Again", é feito uma nova tentativa de requisição à API. Observação: o destaque em vermelho não faz parte do layout, é apenas uma marcação no print para mostrar o card com o erro.
 
 
