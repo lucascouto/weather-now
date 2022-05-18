@@ -1,8 +1,8 @@
-import { OpenInMobileDirective } from './open-in-mobile.directive';
+import { OpenCardDirective } from './open-card.directive';
 
 describe('OpenInMobileDirective', () => {
   it('should create an instance', () => {
-    const directive = new OpenInMobileDirective();
+    const directive = new OpenCardDirective();
     expect(directive).toBeTruthy();
   });
 });

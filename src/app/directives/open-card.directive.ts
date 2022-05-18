@@ -7,9 +7,9 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[openInMobile]',
+  selector: '[openCard]',
 })
-export class OpenInMobileDirective {
+export class OpenCardDirective {
   @Input() cardFooter!: ElementRef<HTMLElement>;
   @Input() cardFooterContent!: ElementRef<HTMLElement>;
 

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { WeatherContainerComponent } from './weather-container/weather-container.component';
 import { WeatherCardComponent } from './weather-container/weather-card/weather-card.component';
 import { HeaderComponent } from './header/header.component';
-import { OpenInMobileDirective } from './directives/open-in-mobile.directive';
+import { OpenCardDirective } from './directives/open-card.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { OpenInMobileDirective } from './directives/open-in-mobile.directive';
     WeatherContainerComponent,
     WeatherCardComponent,
     HeaderComponent,
-    OpenInMobileDirective,
+    OpenCardDirective,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [],
